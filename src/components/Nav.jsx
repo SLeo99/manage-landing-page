@@ -9,8 +9,8 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className='py-[41px]'>
-      <nav className='flex items-start justify-between w-[87.5%] mx-auto min-h-[28px] lg:w-9/12'>
+    <header className='pt-[41px] font-vietnam'>
+      <nav className='flex items-center justify-between w-[87.5%] mx-auto min-h-[28px] lg:w-9/12'>
         <div className='w-4/12 lg:w-auto'>
           <img src={Logo} alt="navigation logo"/>
         </div>

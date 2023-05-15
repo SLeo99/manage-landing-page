@@ -15,6 +15,9 @@ export default {
         VeryPaleRed: 'hsl(13, 100%, 96%)',
         VaryLightGray: 'hsl(0, 0%, 98%)'
       },
+      fontFamily: {
+        vietnam: "'Be Vietnam Pro', sans-serif",
+      },
     },
   },
   plugins: [],
