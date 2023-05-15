@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
-  }
-}
-@layer components {
+/* @layer components {
   .xd {
     @apply border-separate
   }
+} */
+
+* {
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
