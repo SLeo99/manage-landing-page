@@ -1,4 +1,3 @@
-import React from 'react'
 import heroImg from '../../src/assets/illustration-intro.svg'
 import OrangeBtn from './OrangeBtn'
 
