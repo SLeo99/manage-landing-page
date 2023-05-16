@@ -21,11 +21,11 @@ export default function ManageFunctionalities() {
     <div className="flex flex-col gap-[45px]">
       {manage.map((item) => (
         <div className='flex flex-col ml-4 gap-[10px]' key={item.id}>
-          <div className="flex items-center gap-4 bg-emerald-600 rounded-l-full">
-            <span className="pb-2 pt-[7px] w-[67px] font-bold bg-red-500/50 rounded-full text-center">{item.id}</span>
-            <h3 className="font-medium tracking-tight">{item.title}</h3>
+          <div className="flex items-center gap-4 rounded-l-full">
+            <span className="pb-2 pt-[7px] w-[67px] font-bold bg-BrightRed rounded-full text-center text-white">{item.id}</span>
+            <h3 className="font-bold tracking-tight text-DarkBlue">{item.title}</h3>
           </div>
-          <p className="text-[14px] leading-7">{item.textContent}</p>
+          <p className="text-[14px] leading-7 text-DarkGrayishBlue">{item.textContent}</p>
         </div>
       ))}
     </div>
