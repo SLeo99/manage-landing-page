@@ -3,8 +3,8 @@ import img from '../../src/assets/avatar-ali.png';
 
 export default function TestimonialCarousel() {
   return (
-    <div className='flex flex-col items-center gap-[26px]'>
-      <article className='flex flex-col min-h-[248px] relative'>
+    <div className='flex flex-col items-center gap-[26px] xl:gap-6'>
+      <article className='flex flex-col h-[248px] relative max-w-[540px] xl:h-[224px]'>
         <div className='w-[72px] mx-auto -translate-y-9'>
           <img src={img} alt="" />
         </div>
@@ -13,7 +13,7 @@ export default function TestimonialCarousel() {
           <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>“We have been able to cancel so many other subscriptions since using Manage. There is no more cross-channel confusion and everyone is much more focused.”</p>
         </div>
       </article>
-      <div className='flex justify-center gap-1'>
+      <div className='flex justify-center gap-1 xl:hidden'>
         <span className='w-2 h-2 border border-BrightRed rounded-full bg-BrightRed'></span>
         <span className='w-2 h-2 border border-BrightRed rounded-full bg-BrightRed'></span>
         <span className='w-2 h-2 border border-BrightRed rounded-full bg-BrightRed'></span>

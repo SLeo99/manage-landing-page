@@ -18,14 +18,18 @@ export default function ManageFunctionalities() {
   ]
 
   return (
-    <div className="flex flex-col gap-[45px]">
+    <div className="flex flex-col gap-[45px] md:basis-1/2 lg:gap-8">
       {manage.map((item) => (
         <div className='flex flex-col ml-4 gap-[10px]' key={item.id}>
-          <div className="flex items-center gap-4 rounded-l-full">
-            <span className="pb-2 pt-[7px] w-[67px] font-bold bg-BrightRed rounded-full text-center text-white">{item.id}</span>
-            <h3 className="font-bold tracking-tight text-DarkBlue">{item.title}</h3>
+          <div className="flex items-center gap-4 rounded-l-full lg:gap-[26px] lg:items-start">
+            <span className="pb-2 pt-[7px] min-w-[67px] font-bold bg-BrightRed rounded-full text-center text-white">{item.id}</span>
+            <h3 className="font-bold tracking-tight text-DarkBlue lg:hidden">{item.title}</h3>
+            <div className="hidden flex-col gap-4 lg:flex">
+              <h3 className="font-bold tracking-tight text-DarkBlue mt-2">{item.title}</h3>
+              <p className="text-[14px] leading-7 text-DarkGrayishBlue text-left xl:mr-12">{item.textContent}</p>
+            </div>
           </div>
-          <p className="text-[14px] leading-7 text-DarkGrayishBlue">{item.textContent}</p>
+          <p className="text-[14px] leading-7 text-DarkGrayishBlue lg:hidden">{item.textContent}</p>
         </div>
       ))}
     </div>

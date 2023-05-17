@@ -8,14 +8,14 @@ import Testimonials from "./components/Testimonials"
 function App() {
 
   return (
-    <>
+    <div className="bg-white dark:bg-VeryDarkBlue">
       <Nav />
       <Hero />
       <Manage />
       <Testimonials />
       <Simplify />
       <Footer />
-    </>
+    </div>
   )
 }
 
