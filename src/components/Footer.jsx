@@ -28,7 +28,7 @@ export default function Footer() {
             <button className='px-7 bg-BrightRed rounded-full lg:px-5 hover:bg-HoverBtn duration-300 text-sm uppercase'>Go</button>
             <p className={isValid || email === ''  ? 'hidden' : 'absolute top-12 left-[18px] italic font-medium tracking-tight text-BrightRed text-[10px]'}>Please insert a valid email</p>
           </form>
-          <p className="hidden text-xs text-DarkGrayishBlue text-center mt-[2px] lg:block">Copyright 2020. All Rights Reserved</p>
+          <p className="hidden text-xs text-DarkGrayishBlue text-center mt-[2px] lg:text-right lg:block">Copyright 2020. All Rights Reserved</p>
         </div>
         <div className='flex w-[70%] justify-between gap-12 lg:justify-center lg:gap-40'>
           <ul className='flex flex-col gap-[11px]'>

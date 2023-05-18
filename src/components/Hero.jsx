@@ -16,7 +16,7 @@ export default function Hero({dark}) {
           </p>
         </div>
         <OrangeBtn 
-        margin={'mt-[6px]'}
+        margin={'mt-[0px] lg:mt-[6px]'}
         custom={'shadow-[0px_12px_5px_0px_rgba(255,215,204,1)] dark:shadow-[0px_12px_5px_0px_rgba(0,20,20,.2)] hover:bg-HoverBtn duration-300'}
         />
       </div>
