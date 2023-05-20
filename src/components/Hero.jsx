@@ -7,7 +7,7 @@ export default function Hero({dark}) {
   return (
     <main className='w-[87.5%] flex flex-col lg:flex-row-reverse mx-auto mt-[42px] lg:w-[77.25%] lg:mt-40 xl:max-w-[1112px]'>
       <div className='lg:basis-1/2 lg:flex lg:items-center lg:justify-center'>
-        <img src={!dark ? heroImg : heroImgDark} alt="" className='mx-auto'/>
+        <img src={!dark ? heroImg : heroImgDark} alt="Intro Image" className='mx-auto'/>
       </div>
       <div className='flex flex-col items-center lg:items-start gap-7 lg:basis-1/2'>
         <div className='mt-4 flex flex-col items-center gap-2 lg:gap-7'>
