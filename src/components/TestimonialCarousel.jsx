@@ -12,7 +12,6 @@ export default function TestimonialCarousel() {
   {
     id: 0,
     onScreen: true,
-    isFocus: false,
     name: 'Anisha Li',
     testimony: '“Manage has supercharged our team’s workflow. The ability to maintain visibility on larger milestones at all times keeps everyone motivated.”',
     img: firstTestimonyImage
@@ -20,7 +19,6 @@ export default function TestimonialCarousel() {
   {
     id: 1,
     onScreen: true,
-    isFocus: true,
     name: 'Ali Bravo',
     testimony: '“We have been able to cancel so many other subscriptions since using Manage. There is no more cross-channel confusion and everyone is much more focused.”',
     img: secondTestimonyImage
@@ -28,7 +26,6 @@ export default function TestimonialCarousel() {
   {
     id: 2,
     onScreen: true,
-    isFocus: false,
     name:'Richard Watts',
     testimony: '“Manage allows us to provide structure and process. It keeps us organized and focused. I can’t stop recommending them to everyone I talk to!”',
     img: thirdTestimonyImage
@@ -36,7 +33,6 @@ export default function TestimonialCarousel() {
   {
     id: 3,
     onScreen: false,
-    isFocus: false,
     name: 'Shanai Gough',
     testimony: '“Their software allows us to track, manage and collaborate on our projects from anywhere. It keeps the whole team in-sync without being intrusive.”',
     img: fourthTestimonyImage
@@ -44,12 +40,11 @@ export default function TestimonialCarousel() {
   }
 ]
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const initialElements = data.filter(item => item.onScreen === true)
-  const inQueueElements = data.filter(item => item.onScreen === false)
-
-  const [initialTestimonials, setInitialTestimonials] = useState(initialElements)
-  const [unusedElements, setUnusedElements] = useState(inQueueElements)
+const initialElements = data.filter(item => item.onScreen === true)
+const inQueueElements = data.filter(item => item.onScreen === false)
+const [initialTestimonials, setInitialTestimonials] = useState(initialElements)
+const [unusedElements, setUnusedElements] = useState(inQueueElements)
+const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextElement = () => {
     const toQueueElement = initialTestimonials.shift(item => { item })
@@ -80,7 +75,7 @@ export default function TestimonialCarousel() {
   return (
     <div className='flex flex-col items-center gap-[26px] xl:gap-6'>
 
-      <div className='xl:hidden'>
+      <div className='lg:hidden'>
         <article key={data[currentIndex].id} className={currentIndex === data[currentIndex].id ? 'relative flex flex-col h-[248px] max-w-[540px] xl:h-[224px] dark:bg-[#2b2b2b]' : 'hidden'}>
           <div className='absolute flex justify-between items-center top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 xl:h-8 z-30'>
             <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => prevElementMobile()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
@@ -96,12 +91,12 @@ export default function TestimonialCarousel() {
         </article>
       </div>
 
-      <div className='hidden xl:flex xl:gap-3 relative md:w-[77.25%] xl:w-[77.25%] xl:max-w-[1112px]'>
-        <div className="relative xl:grid xl:grid-flow-col xl:auto-cols-fr xl:auto-rows-fr xl:gap-8">
+      <div className='hidden lg:flex lg:gap-3 relative md:w-[90%] xl:w-[77.25%] xl:max-w-[1112px]'>
+        <div className="relative lg:grid lg:grid-flow-col lg:auto-cols-fr lg:auto-rows-fr lg:gap-8">
           {initialTestimonials.map((item) => (
-            <article key={item.id} className='flex flex-col pb-5 dark:bg-[#2b2b2b]'>
-              <div className='w-[72px] mx-auto -translate-y-9'>
-                <img src={item.img} alt="" />
+            <article key={item.id} className='flex flex-col pb-5 bg-VeryPaleRed dark:bg-[#2b2b2b]'>
+              <div className='w-[72px] h-auto mx-auto -translate-y-9'>
+                <img src={item.img} alt={item.name} />
               </div>
               <div className='flex flex-col gap-2 text-center'>
                 <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{item.name}</h2>
@@ -109,16 +104,16 @@ export default function TestimonialCarousel() {
               </div>
             </article>
           ))}
-          <div className="absolute flex justify-between top-1/2 left-1/2 w-[110%] -translate-x-1/2 -translate-y-1/2 h-12">
-            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed duration-300 cursor-pointer' onClick={() => prevElement()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
-            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed  duration-300 cursor-pointer' onClick={() => nextElement()}><span className='hidden xl:block'><FaChevronRight /></span></span>
+          <div className="absolute flex justify-between top-1/2 left-1/2 w-[calc(100%_+_8rem)] -translate-x-1/2 -translate-y-1/2 h-12">
+            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed duration-300 cursor-pointer' onClick={() => prevElement()}><span className='hidden lg:block'><FaChevronLeft /></span></span>
+            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed duration-300 cursor-pointer' onClick={() => nextElement()}><span className='hidden lg:block'><FaChevronRight /></span></span>
           </div>
         </div>
       </div>
 
-      <div className='flex justify-center gap-1 xl:hidden'>
+      <div className='flex justify-center gap-1 lg:hidden'>
         {data.map((item) => (
-          <span key={item.id} className={item.id === currentIndex ? 'w-2 h-2 border border-BrightRed rounded-full bg-BrightRed' : 'w-2 h-2 border border-BrightRed rounded-full'}></span>
+          <span key={item.id} className={item.id === currentIndex ? 'w-2 h-2 border border-BrightRed rounded-full bg-BrightRed duration-300' : 'w-2 h-2 border border-white duration-300 rounded-full'}></span>
         ))}
       </div>
 

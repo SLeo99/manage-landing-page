@@ -40,7 +40,7 @@ export default function Nav({dark, handleTheme}) {
           ? <img src={isOpen ? CloseMenu : Hamburguer} alt="Mobile menu button" /> 
           : <img src={isOpen ? CloseMenuDark : HamburguerDark} alt="Mobile menu button" />}
         </div>
-        <ul className={isOpen ? 'w-full bg-white dark:bg-VeryDarkBlue absolute top-[62px] left-0 rounded-lg flex flex-col py-7 pb-6 shadow-[0px_290px_120px_200px_rgba(0,0,0,0.3)] duration-300' : 'hidden'}>
+        <ul className={isOpen ? 'w-full bg-white dark:bg-VeryDarkBlue absolute z-30 top-[62px] left-1/2 rounded-lg flex flex-col py-7 pb-6 shadow-[0px_290px_120px_200px_rgba(0,0,0,0.3)] -translate-x-1/2 max-w-[400px] duration-300' : 'hidden'}>
           <li><a href="#" className='w-full block text-center font-medium text-DarkBlue hover:text-DarkGrayishBlue dark:text-white dark:hover:text-HoverBtn py-3 tracking-tight'>Pricing</a></li>
           <li><a href="#" className='w-full block text-center font-medium text-DarkBlue hover:text-DarkGrayishBlue dark:text-white dark:hover:text-HoverBtn py-3 tracking-tight'>Product</a></li>
           <li><a href="#" className='w-full block text-center font-medium text-DarkBlue hover:text-DarkGrayishBlue dark:text-white dark:hover:text-HoverBtn py-3 tracking-tight'>About Us</a></li>
