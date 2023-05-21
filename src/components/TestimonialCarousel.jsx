@@ -56,9 +56,6 @@ export default function TestimonialCarousel() {
     const newOnScreenElement = unusedElements.shift(item => { item })
     setInitialTestimonials(initialTestimonials.concat(newOnScreenElement))
     setUnusedElements(unusedElements.concat(toQueueElement))
-    const isFirstElement = currentIndex === data.length - 1;
-    const newElement = isFirstElement ? 0 : currentIndex + 1
-    setCurrentIndex(newElement)
   }
   
   const prevElement = () => {
@@ -66,6 +63,15 @@ export default function TestimonialCarousel() {
     const newOnScreenElement = unusedElements.pop(item => { item })
     setInitialTestimonials([newOnScreenElement].concat(initialTestimonials))
     setUnusedElements([toQueueElement].concat(unusedElements))
+  }
+
+  const nextElementMobile = () => {
+    const isFirstElement = currentIndex === data.length - 1;
+    const newElement = isFirstElement ? 0 : currentIndex + 1
+    setCurrentIndex(newElement)
+  }
+
+  const prevElementMobile = () => {
     const isLastElement = currentIndex === 0;
     const newElement = isLastElement ? data.length - 1 : currentIndex - 1
     setCurrentIndex(newElement)
@@ -73,43 +79,50 @@ export default function TestimonialCarousel() {
 
   return (
     <div className='flex flex-col items-center gap-[26px] xl:gap-6'>
+
       <div className='xl:hidden'>
         <article key={data[currentIndex].id} className={currentIndex === data[currentIndex].id ? 'relative flex flex-col h-[248px] max-w-[540px] xl:h-[224px] dark:bg-[#2b2b2b]' : 'hidden'}>
           <div className='absolute flex justify-between items-center top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 xl:h-8 z-30'>
-            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => prevElement()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
-            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => nextElement()}><span className='hidden xl:block'><FaChevronRight /></span></span>
+            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => prevElementMobile()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
+            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => nextElementMobile()}><span className='hidden xl:block'><FaChevronRight /></span></span>
           </div>
           <div className='w-[72px] mx-auto -translate-y-9'>
-                <img src={data[currentIndex].img} alt="" />
+            <img src={data[currentIndex].img} alt="" />
           </div>
           <div className='flex flex-col gap-2 text-center'>
-                <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{data[currentIndex].name}</h2>
-                <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>{data[currentIndex].testimony}</p>
+            <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{data[currentIndex].name}</h2>
+            <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>{data[currentIndex].testimony}</p>
           </div>
         </article>
       </div>
-      {/* xXDDDDDDDDDDDDD */}
-      <div className='hidden xl:flex xl:gap-6'>
-        {data.map((item) => (
-          <article key={item.id} className='relative flex flex-col h-[248px] max-w-[540px] xl:h-[224px] dark:bg-[#2b2b2b]'>
-            <div className='absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 h-8 bg-red-500'></div>
-            <div className='w-[72px] mx-auto -translate-y-9'>
-                  <img src={item.img} alt="" />
-            </div>
-            <div className='flex flex-col gap-2 text-center'>
-                  <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{item.name}</h2>
-                  <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>{item.testimony}</p>
-            </div>
-          </article>
-        ))}
+
+      <div className='hidden xl:flex xl:gap-3 relative md:w-[77.25%] xl:w-[77.25%] xl:max-w-[1112px]'>
+        <div className="relative xl:grid xl:grid-flow-col xl:auto-cols-fr xl:auto-rows-fr xl:gap-8">
+          {initialTestimonials.map((item) => (
+            <article key={item.id} className='flex flex-col pb-5 dark:bg-[#2b2b2b]'>
+              <div className='w-[72px] mx-auto -translate-y-9'>
+                <img src={item.img} alt="" />
+              </div>
+              <div className='flex flex-col gap-2 text-center'>
+                <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{item.name}</h2>
+                <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>{item.testimony}</p>
+              </div>
+            </article>
+          ))}
+          <div className="absolute flex justify-between top-1/2 left-1/2 w-[110%] -translate-x-1/2 -translate-y-1/2 h-12">
+            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed duration-300 cursor-pointer' onClick={() => prevElement()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
+            <span className='text-5xl h-full flex items-center text-DarkBlue dark:text-white hover:text-BrightRed dark:hover:text-BrightRed  duration-300 cursor-pointer' onClick={() => nextElement()}><span className='hidden xl:block'><FaChevronRight /></span></span>
+          </div>
+        </div>
       </div>
+
       <div className='flex justify-center gap-1 xl:hidden'>
         {data.map((item) => (
           <span key={item.id} className={item.id === currentIndex ? 'w-2 h-2 border border-BrightRed rounded-full bg-BrightRed' : 'w-2 h-2 border border-BrightRed rounded-full'}></span>
         ))}
       </div>
-      {/* OrangeBtn w margin-top */}
-      <a href="#" className='w-[137px] text-center py-[14px] bg-BrightRed rounded-full text-xs font-bold mt-[20px] text-white shadow-[0px_12px_10px_0px_rgba(255,215,204,1)] dark:shadow-[0px_12px_5px_0px_rgba(0,20,20,.2)] hover:opacity-75 duration-300'>Get Started</a>
+
+      <a href="#" className='w-[137px] text-center py-[14px] bg-BrightRed rounded-full text-xs font-bold mt-[8px] text-white shadow-[0px_12px_10px_0px_rgba(255,215,204,1)] dark:shadow-[0px_12px_5px_0px_rgba(0,20,20,.2)] hover:opacity-75 duration-300'>Get Started</a>
     </div>
   )
 }

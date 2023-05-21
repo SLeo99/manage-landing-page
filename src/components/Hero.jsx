@@ -5,7 +5,7 @@ import OrangeBtn from './OrangeBtn'
 
 export default function Hero({dark}) {
   return (
-    <main className='w-[87.5%] flex flex-col lg:flex-row-reverse mx-auto mt-[42px] lg:w-[77.25%] lg:mt-40 xl:max-w-[1112px]'>
+    <main className='relative w-[87.5%] flex flex-col lg:flex-row-reverse mx-auto mt-[42px] lg:w-[77.25%] lg:mt-40 xl:max-w-[1112px]'>
       <div className='lg:basis-1/2 lg:flex lg:items-center lg:justify-center'>
         <img src={!dark ? heroImg : heroImgDark} alt="Intro Image" className='mx-auto'/>
       </div>
