@@ -78,8 +78,8 @@ const [currentIndex, setCurrentIndex] = useState(0)
       <div className='lg:hidden'>
         <article key={data[currentIndex].id} className={currentIndex === data[currentIndex].id ? 'relative flex flex-col h-[248px] max-w-[540px] xl:h-[224px] dark:bg-[#2b2b2b] shadow-lg shadow-[#2b2b2b] dark:shadow-none rounded-sm' : 'hidden'}>
           <div className='absolute flex justify-between items-center top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 xl:h-8 z-30'>
-            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => prevElementMobile()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
-            <span className='text-3xl h-full basis-1/2 flex items-center' onMouseDown={() => nextElementMobile()}><span className='hidden xl:block'><FaChevronRight /></span></span>
+            <span className='text-3xl h-full basis-1/2 flex items-center cursor-pointer' onMouseDown={() => prevElementMobile()}><span className='hidden xl:block'><FaChevronLeft /></span></span>
+            <span className='text-3xl h-full basis-1/2 flex items-center cursor-pointer' onMouseDown={() => nextElementMobile()}><span className='hidden xl:block'><FaChevronRight /></span></span>
           </div>
           <div className='w-[72px] mx-auto -translate-y-9'>
             <img src={data[currentIndex].img} alt="" />
