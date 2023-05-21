@@ -113,7 +113,7 @@ const [currentIndex, setCurrentIndex] = useState(0)
 
       <div className='flex justify-center gap-1 lg:hidden'>
         {data.map((item) => (
-          <span key={item.id} className={item.id === currentIndex ? 'w-2 h-2 border border-BrightRed rounded-full bg-BrightRed duration-300' : 'w-2 h-2 border border-white duration-300 rounded-full'}></span>
+          <span key={item.id} className={item.id === currentIndex ? 'w-2 h-2 border border-BrightRed rounded-full bg-BrightRed duration-300' : 'w-2 h-2 border border-BrightRed duration-300 rounded-full'}></span>
         ))}
       </div>
 
