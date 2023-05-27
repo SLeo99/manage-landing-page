@@ -32,7 +32,7 @@ export default function DesktopCarousel({testimonydata}) {
             </div>
             <div className='flex flex-col gap-2 text-center'>
               <h2 className='-translate-y-2 text-DarkBlue dark:text-white font-bold duration-300'>{item.name}</h2>
-              <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue'>{item.testimony}</p>
+              <p className='text-[15px] w-11/12 mx-auto leading-7 text-DarkGrayishBlue line-clamp-4'>{item.testimony}</p>
             </div>
           </article>
         ))}
