@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import Manage from "./components/Manage"
@@ -7,12 +7,26 @@ import Simplify from "./components/Simplify"
 import Testimonials from "./components/Testimonials"
 
 function App() {
-
-  const [theme, setTheme] = useState(false)
+  const rootElement = document.documentElement
+  const storedDarkMode = JSON.parse(localStorage.getItem('DARK_MODE'))
+  const [theme, setTheme] = useState(storedDarkMode)
   const handleTheme = () => {
     setTheme(!theme)
-    document.documentElement.classList.toggle('dark')
+    rootElement.classList.toggle('dark')
   }
+  
+  useEffect(() => {
+    switch (theme) {
+      case true:
+        rootElement.classList.add('dark')
+        localStorage.setItem('DARK_MODE', true)
+        break;
+      case false:
+        rootElement.classList.remove('dark')
+        localStorage.setItem('DARK_MODE', false)
+        break;
+    }
+  }, [theme])
 
   return (
     <div className="relative bg-white dark:bg-[#212121] duration-300 overflow-x-hidden">
