@@ -25,6 +25,9 @@ function App() {
         rootElement.classList.remove('dark')
         localStorage.setItem('DARK_MODE', false)
         break;
+      case undefined || null:
+        localStorage.setItem('DARK_MODE', false)
+        break;
     }
   }, [theme])
 
